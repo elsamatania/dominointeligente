@@ -1,11 +1,14 @@
-package dominio;
+package dominio.jogador;
+
+import dominio.Peca;
+import dominio.Tabuleiro;
 
 
 /**
  * Esta classe implementa o tipo de jogador que utiliza a estrategia de
  * "Busca Cega" para realizar as suas jogadas.
  * 
- * Busca Cega: Percorre as peças, jogando a primeira que se encaixar no jogo.
+ * Busca Cega: Percorre as peças, jogando a primeira que se encaixar no Jogo.
  * 
  * @author Gustavo Farias
  *

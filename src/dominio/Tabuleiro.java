@@ -3,7 +3,7 @@ package dominio;
 import java.util.LinkedList;
 
 /**
- * Classe que representa o tabuleiro de um jogo de domino.
+ * Classe que representa o tabuleiro de um Jogo de domino.
  * 
  * @author Gustavo Farias
  */

@@ -1,5 +1,7 @@
 package dominio;
 
+import dominio.jogador.Jogador;
+import dominio.jogador.Jogador_BuscaCega;
 import junit.framework.TestCase;
 
 public class Jogador_BuscaCegaTest extends TestCase {
