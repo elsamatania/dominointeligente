@@ -1,5 +1,6 @@
 package dominio;
 
+
 /**
  * Esta classe implementa o tipo de jogador que utiliza a estrategia de
  * "Busca Cega" para realizar as suas jogadas.
@@ -16,9 +17,26 @@ public class Jogador_BuscaCega extends Jogador {
 	}
 
 	@Override
-	public String joga(Tabuleiro tabuleiro) {
-		// TODO Auto-generated method stub
-		return null;
+	public Peca joga(Tabuleiro tabuleiro) {
+
+		Peca retorno = null;
+		
+		int i = 0;
+		boolean achouJogada = false;
+		while(i < getQuantPecas() && !achouJogada){
+			
+			Peca peca = getPeca(i);
+			if(tabuleiro.adicionaPecaEsquerdaTabuleiro(peca)){
+				achouJogada = true;
+				retorno = peca;
+			} else if(tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
+				achouJogada = true;
+				retorno = peca;
+			}
+			i++;
+		}
+		
+		return retorno;
 	}
 	
 }

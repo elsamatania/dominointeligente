@@ -47,11 +47,53 @@ public class Tabuleiro {
 	}
 
 	private boolean podeAddEsquerda(Peca peca) {
-		return pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoDireito();
+		
+		if(tabuleiroVazio() || pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoDireito())
+			return true;
+		
+		if(pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoEsquerdo()){
+			invertePeca(peca);
+			return true;
+		}
+		
+		return false;
 	}
 	
 	private boolean podeAddDireita(Peca peca) {
-		return pecasJogadas.getLast().getLadoDireito() == peca.getLadoEsquerdo();
+		
+		if(tabuleiroVazio() || pecasJogadas.getFirst().getLadoDireito() == peca.getLadoEsquerdo())
+			return true;
+		
+		if(pecasJogadas.getFirst().getLadoDireito() == peca.getLadoDireito()){
+			invertePeca(peca);
+			return true;
+		}
+		
+		return false;
+	}
+
+	public void reset() {
+		this.pecasJogadas.clear();
+	}
+	
+	private boolean tabuleiroVazio(){
+		return this.pecasJogadas.size() == 0;
+	}
+	
+	private void invertePeca(Peca peca) {
+		int aux = peca.getLadoEsquerdo();
+		peca.setLadoEsquerdo(peca.getLadoDireito());
+		peca.setLadoDireito(aux);
+	}
+	
+	public String toString(){
+		String out = "";
+		
+		for (int i = 0; i < pecasJogadas.size(); i++) {
+			out += pecasJogadas.get(i).toString() + " ";
+		}
+		
+		return out;
 	}
 	
 }
