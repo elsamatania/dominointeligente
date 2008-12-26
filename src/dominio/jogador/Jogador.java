@@ -37,7 +37,7 @@ public abstract class Jogador {
 	public Peca removePeca(int posicao){
 		
 		try {
-			return pecas.get(posicao);
+			return pecas.remove(posicao);
 		} catch (Exception e) {
 			return null;
 		}
@@ -74,6 +74,18 @@ public abstract class Jogador {
 	 */
 	public Peca getPeca(int posicao) {
 		return pecas.get(posicao);
+	}
+
+	public String getPecasComoString() {
+
+		String out = "";
+
+		for (int i = 0; i < pecas.size(); i++) {
+			out += pecas.get(i).toString() + " ";
+		}
+		
+		return out;
+
 	}
 	
 }
