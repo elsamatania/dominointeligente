@@ -43,7 +43,7 @@ public class Peca {
 	}
 	
 	public String toString(){
-		return ladoEsquerdo + ":" + ladoDireito;
+		return "|"+ladoEsquerdo + ":" + ladoDireito+"|";
 	}
 	
 }
