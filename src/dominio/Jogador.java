@@ -1,7 +1,6 @@
 package dominio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Classe que representa um jogador de domino.
@@ -10,13 +9,13 @@ import java.util.List;
  */
 public abstract class Jogador {
 
-	private List<Peca> pecas;
+	private LinkedList<Peca> pecas;
 	
 	private String nome;
 	
 	public Jogador(String nome){
 		this.nome = nome;
-		pecas = new ArrayList<Peca>();
+		pecas = new LinkedList<Peca>();
 	}
 
 	/**
@@ -24,15 +23,15 @@ public abstract class Jogador {
 	 * @param peca
 	 */
 	public void addPeca(Peca peca){
-		this.pecas.add(peca);
+		this.pecas.addLast(peca);
 	}
 	
 	/**
-	 * Retira da mao do jogador a peca especificada pela posicao recebida.  
+	 * Remove da mao do jogador a peca especificada pela posicao recebida.  
 	 * @param posicao
 	 * @return a peca retirada ou null, caso a posicao seja invalida.
 	 */
-	public Peca retiraPeca(int posicao){
+	public Peca removePeca(int posicao){
 		
 		try {
 			return pecas.get(posicao);
@@ -55,9 +54,23 @@ public abstract class Jogador {
 	 * tipo de jogador que extender esta classe devera sobrescrever 
 	 * este metodo e implementar a sua propria estrategia de jogo.
 	 * @param tabuleiro
-	 * @return o codigo de retorno associoado a jogada executada. A relacao
-	 * 			dos codigos de retornos existentes esta na interface ConstantesCodigoRetorno. 
+	 * @return A peca jogada, ou null, caso o jogador passe a vez, ou seja,
+	 * nenhuma de suas pecas se encaixe no tabuleiro. 
 	 */
-	public abstract String joga(Tabuleiro tabuleiro);
+	public abstract Peca joga(Tabuleiro tabuleiro);
+
+	
+	public int getQuantPecas() {
+		return pecas.size();
+	}
+	
+	/**
+	 * Retorna uma Peca, sem retira-la da mao do jogador.
+	 * @param posicao
+	 * @return
+	 */
+	public Peca getPeca(int posicao) {
+		return pecas.get(posicao);
+	}
 	
 }

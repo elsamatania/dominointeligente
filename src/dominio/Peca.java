@@ -37,4 +37,13 @@ public class Peca {
 		this.ladoDireito = ladoDireito;
 	}
 	
+	public boolean equals(Peca p){
+		return this.ladoDireito == p.getLadoDireito() &&
+					this.ladoEsquerdo == p.getLadoEsquerdo();
+	}
+	
+	public String toString(){
+		return ladoEsquerdo + ":" + ladoDireito;
+	}
+	
 }
