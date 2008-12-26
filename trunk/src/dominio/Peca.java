@@ -1,7 +1,7 @@
 package dominio;
 
 /**
- * Classe que representa uma peca do jogo de domino.
+ * Classe que representa uma peca do Jogo de domino.
  * @author Gustavo Farias
  *
  */

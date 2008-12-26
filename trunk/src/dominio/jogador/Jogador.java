@@ -1,6 +1,9 @@
-package dominio;
+package dominio.jogador;
 
 import java.util.LinkedList;
+
+import dominio.Peca;
+import dominio.Tabuleiro;
 
 /**
  * Classe que representa um jogador de domino.
@@ -52,7 +55,7 @@ public abstract class Jogador {
 	/**
 	 * Metodo que define a forma de jogar do jogador. Cada
 	 * tipo de jogador que extender esta classe devera sobrescrever 
-	 * este metodo e implementar a sua propria estrategia de jogo.
+	 * este metodo e implementar a sua propria estrategia de Jogo.
 	 * @param tabuleiro
 	 * @return A peca jogada, ou null, caso o jogador passe a vez, ou seja,
 	 * nenhuma de suas pecas se encaixe no tabuleiro. 
