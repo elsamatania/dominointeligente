@@ -87,5 +87,9 @@ public abstract class Jogador {
 		return out;
 
 	}
+
+	public boolean bateu() {
+		return pecas.size() == 0;
+	}
 	
 }

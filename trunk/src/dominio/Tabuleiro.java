@@ -1,8 +1,11 @@
 package dominio;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
+
+import dominio.jogador.Jogador;
 
 /**
  * Classe que representa o tabuleiro de um Jogo de domino.
