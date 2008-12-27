@@ -29,15 +29,16 @@ public class Jogador_BuscaCega extends Jogador {
 		while(i < getQuantPecas() && !achouJogada){
 			
 			Peca peca = getPeca(i);
-			if(tabuleiro.adicionaPecaEsquerdaTabuleiro(peca)){ // testar: || tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
-				achouJogada = true;
-				retorno = peca;
-				removePeca(i);
-			} else if(tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
+			if(tabuleiro.adicionaPecaEsquerdaTabuleiro(peca) || tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
 				achouJogada = true;
 				retorno = peca;
 				removePeca(i);
 			}
+//			} else if(tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
+//				achouJogada = true;
+//				retorno = peca;
+//				removePeca(i);
+//			}
 			i++;
 		}
 		
