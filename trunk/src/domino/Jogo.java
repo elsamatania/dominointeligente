@@ -112,6 +112,10 @@ public class Jogo {
 		
 	}
 	
+	// =====================================================================
+	// ========== Metodos que imprimem informacoes sobre o jogo. ===========
+	// =====================================================================
+	
 	private static void ImprimeFimDeJogoPorPontos(Jogador vencedor, Jogador perdedor) {
 		System.out.println("\n");
 		System.out.println("====================  FIM DE JOGO: VITORIA POR PONTOS!! ======================");
@@ -142,10 +146,6 @@ public class Jogo {
 		inReader.readLine();
 	}
 	
-	// =====================================================================
-	// ========== Metodos que imprimem informacoes sobre o jogo. ===========
-	// =====================================================================
-
 	private static void imprimePecaJogada(Peca pecaJogada) {
 		if(pecaJogada == null)
 			System.out.println("PASSOU A VEZ!\n");
