@@ -91,5 +91,21 @@ public abstract class Jogador {
 	public boolean bateu() {
 		return pecas.size() == 0;
 	}
+
+	/**
+	 * Retorna a soma de todos os valores das pedras que estao atualmente
+	 * na mao deste jogador.
+	 * @return
+	 */
+	public int getTotalPontos() {
+		
+		int totalPontos = 0;
+		
+		for (int i = 0; i < pecas.size(); i++) {
+			totalPontos += pecas.get(i).getLadoEsquerdo() + pecas.get(i).getLadoDireito();
+		}
+		
+		return totalPontos;
+	}
 	
 }
