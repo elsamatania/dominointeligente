@@ -49,15 +49,21 @@ public class Jogo {
 		inicializacaoJogo(jogador1, jogador2, tabuleiro);
 		
 		boolean jogoAcabou = false;
+		boolean jogador1Jogou = false;
+		boolean jogador2Jogou = false;
 		
 		// a cada iteracao no loop ocorrem 2 jogadas, uma de cada jogador.
 		while(!jogoAcabou){
 			
 			imprimeInicioRodada();
 			
+			// realiza jogada do jogador1
 			System.out.println("Jogador " + jogador1.getNome() + " joga.\n");
 			aguardaProximaJogada(inReader);
 			Peca pecaJogada = jogador1.joga(tabuleiro);
+			if(pecaJogada != null)
+				jogador1Jogou = true;
+			
 			imprimePecaJogada(pecaJogada);
 			impimeTabuleiro(tabuleiro);
 			imprimeMaosJogadores(jogador1, jogador2);
@@ -67,10 +73,13 @@ public class Jogo {
 			}
 				
 
-			
+			// realiza jogada do jogador2
 			System.out.println("Jogador " + jogador2.getNome() + " joga.\n");
 			aguardaProximaJogada(inReader);
 			pecaJogada = jogador2.joga(tabuleiro);
+			if(pecaJogada != null)
+				jogador2Jogou = true;
+			
 			imprimePecaJogada(pecaJogada);
 			impimeTabuleiro(tabuleiro);
 			imprimeMaosJogadores(jogador1, jogador2);
@@ -81,10 +90,56 @@ public class Jogo {
 			
 			ImprimeRodadaEncerrada();
 			
-			// jogo verifica se o jogo esta congelado e, no caso positivo, conta os pontos.
+			// Se o jogo esta trancado, conta os pontos e verifica
+			// quem eh o vencedor ( quem fez menos pontos ).
+			if(!jogador1Jogou && !jogador2Jogou){
+				jogoAcabou = true;
+				int pontosJogador1 = jogador1.getTotalPontos();
+				int pontosJogador2 = jogador2.getTotalPontos();
+				
+				if(pontosJogador1 < pontosJogador2)
+					ImprimeFimDeJogoPorPontos(jogador1, jogador2);
+				else if(pontosJogador2 < pontosJogador1)
+					ImprimeFimDeJogoPorPontos(jogador2, jogador1);
+				else 
+					ImprimeJogoEmpatado(pontosJogador1);
+			}
+			
+			jogador1Jogou = false;
+			jogador2Jogou = false;
 			
 		}
 		
+	}
+	
+	private static void ImprimeFimDeJogoPorPontos(Jogador vencedor, Jogador perdedor) {
+		System.out.println("\n");
+		System.out.println("====================  FIM DE JOGO: VITORIA POR PONTOS!! ======================");
+		System.out.println("VENCEDOR: " + vencedor.getNome() + " COM " + vencedor.getTotalPontos() + " PONTOS;");
+		System.out.println("PERDEDOR: " + perdedor.getNome() + " COM " + perdedor.getTotalPontos() + " PONTOS.");
+		System.out.println("==========================================================");
+		System.out.println("\n");
+	}
+
+	private static void ImprimeJogoEmpatado(int pontosJogador) {
+		System.out.println("\n");
+		System.out.println("====================  FIM DE JOGO: JOGO EMPATADO!!  ======================");
+		System.out.println("PONTOS DOS JOGADORES: " + pontosJogador);
+		System.out.println("==========================================================");
+		System.out.println("\n");
+		
+	}
+	
+	private static void ImprimeFimDeJogo(Jogador jogadorVencedor) {
+		System.out.println("\n");
+		System.out.println("====================  FIM DE JOGO. VITORIA POR BATIDA!!  ======================");
+		System.out.println("VENCEDOR: " + jogadorVencedor.getNome());
+		System.out.println("==========================================================");
+		System.out.println("\n");
+	}
+
+	private static void aguardaProximaJogada(BufferedReader inReader) throws IOException {
+		inReader.readLine();
 	}
 	
 	// =====================================================================
@@ -97,7 +152,7 @@ public class Jogo {
 		else
 			System.out.println("Peça jogada: " + pecaJogada.toString() + "\n");
 	}
-
+	
 	private static void inicializacaoJogo(Jogador jogador1, Jogador jogador2, Tabuleiro tabuleiro) throws InterruptedException {
 
 		System.out.println("Criando e misturando as peças...");
@@ -126,18 +181,6 @@ public class Jogo {
 		
 		System.out.println("2 - ");
 		
-	}
-
-	private static void aguardaProximaJogada(BufferedReader inReader) throws IOException {
-		inReader.readLine();
-	}
-	
-	private static void ImprimeFimDeJogo(Jogador jogadorVencedor) {
-		System.out.println("\n");
-		System.out.println("====================  FIM DE JOGO.  ======================");
-		System.out.println("VENCEDOR: " + jogadorVencedor);
-		System.out.println("==========================================================");
-		System.out.println("\n");
 	}
 	
 	private static void ImprimeRodadaEncerrada() {
