@@ -1,0 +1,22 @@
+
+FEITO: O jogo: jogado por 2 jogadores virtuais. 
+
+FEITO: Isto para que possamos atribuir estratégias diferentes para cada um deles, antes do jogo, ficando bem claro 
+de ver as estratégias sendo utilizadas por cada um. Daí a gente poderia definir, antes do jogo, qual estratégia 
+cada um dos dois utilizará.
+
+FEITO: - BUSCA CEGA: Varre as peças, jogando a primeira que se encaixar no jogo.
+
+- MIN MAX: A cada jogada, o computador joga a peça que mais o leva pra perto da vitória e que mais atrapalha o adversário. A meta é minimizar os efeitos da jogada do adversário e maximizar o efeito da própria jogada.
+
+- VARIÁVEL MENOS RESTRITIVA: Valor que deixa mais opções para escolhas no futuro;
+
+- VARIÄVEL MAIS RESTRINGIDA: Variável que pode assumir menos valores é a escolhida ( Se eu tenho a opção de jogar dos dois lados do jogo, jogo no lado onde eu tiver menos opções pra jogar );
+
+A gente poderia pegar 2 ou 3 estratégias dessas pra implementar e, antes do início do jogo, 
+pode-se definir qual estratégia cada um dos 2 jogadores vai utilizar. 
+
+FEITO: A cada enter uma nova jogada acontece. 
+
+FEITO ( o método "joga" ): A gente pode deixar bem isolado essa parte do software onde esse raciocínio será feito, 
+pra ficar fácil de dividir as tarefas.
