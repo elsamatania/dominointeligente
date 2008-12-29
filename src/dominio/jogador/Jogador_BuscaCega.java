@@ -34,11 +34,7 @@ public class Jogador_BuscaCega extends Jogador {
 				retorno = peca;
 				removePeca(i);
 			}
-//			} else if(tabuleiro.adicionaPecaDireitaTabuleiro(peca)){
-//				achouJogada = true;
-//				retorno = peca;
-//				removePeca(i);
-//			}
+			
 			i++;
 		}
 		

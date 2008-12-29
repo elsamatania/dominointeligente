@@ -9,4 +9,6 @@ public interface ConstantesTipoJogador {
 
 	public static int JOGADOR_BUSCA_CEGA = 1;
 	
+	public static int JOGADOR_VAR_MENOS_RESTRITIVA = 2;
+	
 }

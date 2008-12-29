@@ -179,7 +179,8 @@ public class Jogo {
 		System.out.println("1 - Busca Cega: o jogador irá percorrer suas peças da esquerda para a direita \n" +
 				"e jogar a primeira que se encaixar no tabuleiro.");
 		
-		System.out.println("2 - ");
+		System.out.println("2 - Variável Menos Restritiva: o jgador escolhe a peça que deixa mais opções \n" +
+				"para escolhas no futuro.");
 		
 	}
 	

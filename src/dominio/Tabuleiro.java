@@ -56,7 +56,7 @@ public class Tabuleiro {
 
 	private boolean podeAddEsquerda(Peca peca) {
 		
-		if(tabuleiroVazio() || pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoDireito())
+		if(estaVazio() || pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoDireito())
 			return true;
 		
 		if(pecasJogadas.getFirst().getLadoEsquerdo() == peca.getLadoEsquerdo()){
@@ -69,7 +69,7 @@ public class Tabuleiro {
 	
 	private boolean podeAddDireita(Peca peca) {
 		
-		if(tabuleiroVazio() || pecasJogadas.getLast().getLadoDireito() == peca.getLadoEsquerdo())
+		if(estaVazio() || pecasJogadas.getLast().getLadoDireito() == peca.getLadoEsquerdo())
 			return true;
 		
 		if(pecasJogadas.getLast().getLadoDireito() == peca.getLadoDireito()){
@@ -82,10 +82,6 @@ public class Tabuleiro {
 
 	public void reset() {
 		this.pecasJogadas.clear();
-	}
-	
-	private boolean tabuleiroVazio(){
-		return this.pecasJogadas.size() == 0;
 	}
 	
 	private void invertePeca(Peca peca) {
@@ -102,6 +98,18 @@ public class Tabuleiro {
 		}
 		
 		return out;
+	}
+	
+	public Peca getPecaEsquerdaTabuleiro(){
+		return pecasJogadas.getFirst();
+	}
+	
+	public Peca getPecaDireitaTabuleiro(){
+		return pecasJogadas.getLast();
+	}
+	
+	public Set<Peca> getTodasAsPecas() {
+		return todasAsPecas;
 	}
 
 	public void instanciaTodasAsPecas() {
@@ -140,8 +148,8 @@ public class Tabuleiro {
 		
 	}
 
-	public Set<Peca> getTodasAsPecas() {
-		return todasAsPecas;
+	public boolean estaVazio() {
+		return pecasJogadas.size() == 0;
 	}
-	
+
 }

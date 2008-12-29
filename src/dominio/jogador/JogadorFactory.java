@@ -35,11 +35,13 @@ public class JogadorFactory {
 		switch (tipo) {
 		case ConstantesTipoJogador.JOGADOR_BUSCA_CEGA:
 			return new Jogador_BuscaCega(nome);
+		case ConstantesTipoJogador.JOGADOR_VAR_MENOS_RESTRITIVA:
+			return new Jogador_VarMenosRestritiva(nome);
 		default:
-			break;
+			return null;
 		}
 		
-		return null;
+		
 	}
 	
 }
