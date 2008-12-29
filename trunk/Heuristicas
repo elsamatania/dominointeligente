@@ -7,7 +7,9 @@ cada um dos dois utilizará.
 
 FEITO: - BUSCA CEGA: Varre as peças, jogando a primeira que se encaixar no jogo.
 
-- MIN MAX: A cada jogada, o computador joga a peça que mais o leva pra perto da vitória e que mais atrapalha o adversário. A meta é minimizar os efeitos da jogada do adversário e maximizar o efeito da própria jogada.
+- MIN MAX: A cada jogada, o computador joga a peça que mais o leva pra perto da vitória e 
+que mais atrapalha o adversário. A meta é minimizar os efeitos da jogada do adversário e 
+maximizar o efeito da própria jogada.
 
 - VARIÁVEL MENOS RESTRITIVA: Valor que deixa mais opções para escolhas no futuro;
 

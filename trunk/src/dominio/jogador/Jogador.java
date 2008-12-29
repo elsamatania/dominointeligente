@@ -45,6 +45,31 @@ public abstract class Jogador {
 	}
 	
 	/**
+	 * Remove da mao do jogador a peca especificada.  
+	 * @param posicao
+	 * @return a peca retirada ou null, caso a peca nao exista.
+	 */
+	public Peca removePeca(Peca peca){
+		
+		if(peca == null)
+			return null;
+		
+		Peca retorno = null;
+		
+		for (int i = 0; i < pecas.size(); i++) {
+			Peca pecaAtual = pecas.get(i);
+			if(pecaAtual.equals(peca)){
+				retorno = pecaAtual;
+				pecas.remove(i);
+				break;
+			}
+		}
+		
+		return retorno;
+		
+	}
+	
+	/**
 	 * Retorna o nome do jogador.
 	 * @return
 	 */

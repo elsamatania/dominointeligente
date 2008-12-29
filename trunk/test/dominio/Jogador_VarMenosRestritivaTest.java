@@ -1,10 +1,10 @@
 package dominio;
 
-import dominio.jogador.Jogador;
-import dominio.jogador.Jogador_BuscaCega;
 import junit.framework.TestCase;
+import dominio.jogador.Jogador;
+import dominio.jogador.Jogador_VarMenosRestritiva;
 
-public class Jogador_BuscaCegaTest extends TestCase {
+public class Jogador_VarMenosRestritivaTest extends TestCase {
 
 	private Tabuleiro tabuleiro;
 	
@@ -12,14 +12,14 @@ public class Jogador_BuscaCegaTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		tabuleiro = new Tabuleiro();
-		jogador = new Jogador_BuscaCega("nome");
+		jogador = new Jogador_VarMenosRestritiva("nome");
 	}
 
 	protected void tearDown() throws Exception {
 		tabuleiro.reset();
 	}
 	
-
+	
 	public void testAddPecaTabuleiroVazio(){
 		
 		// cenario
@@ -29,6 +29,27 @@ public class Jogador_BuscaCegaTest extends TestCase {
 		
 		// teste
 		assertEquals(pecaMao, jogador.joga(tabuleiro));
+		
+	}
+	
+	public void testAddPecaTabuleiroVazio_2(){
+		
+		// cenario
+		
+		Peca peca1 = new Peca(2, 4);
+		Peca peca2 = new Peca(2, 5);
+		Peca peca3 = new Peca(2, 6);
+		Peca peca4 = new Peca(3, 6);
+		Peca peca5 = new Peca(3, 1);
+		
+		jogador.addPeca(peca1);
+		jogador.addPeca(peca2);
+		jogador.addPeca(peca3);
+		jogador.addPeca(peca4);
+		jogador.addPeca(peca5);
+		
+		// teste
+		assertEquals(peca3, jogador.joga(tabuleiro));
 		
 	}
 
@@ -106,45 +127,11 @@ public class Jogador_BuscaCegaTest extends TestCase {
 		
 	}
 	
-	public void testAdicionaPrimeraPecaQueAparecer(){
-		
-		// cenario
-		Peca pecaTab = new Peca(3, 6);
-		tabuleiro.adicionaPecaEsquerdaTabuleiro(pecaTab);
-		
-		Peca pecaMao1 = new Peca(2, 4);
-		Peca pecaMao2 = new Peca(1, 6);
-		Peca pecaMao3 = new Peca(3, 5);
-		Peca pecaMao4 = new Peca(6, 6);
-		jogador.addPeca(pecaMao1);
-		jogador.addPeca(pecaMao2);
-		jogador.addPeca(pecaMao3);
-		jogador.addPeca(pecaMao4);
-		
-		// teste
-		assertEquals(pecaMao2, jogador.joga(tabuleiro));
-		assertEquals(pecaMao2, tabuleiro.getPecasJogadas().getLast());
+	public void testAdicionaMenosRestritiva(){
 		
 	}
 	
-	public void testAdicionaPrimeraPecaQueAparecer_2(){
-		
-		// cenario
-		Peca pecaTab = new Peca(3, 6);
-		tabuleiro.adicionaPecaEsquerdaTabuleiro(pecaTab);
-		
-		Peca pecaMao1 = new Peca(2, 4);
-		Peca pecaMao2 = new Peca(1, 6);
-		Peca pecaMao3 = new Peca(3, 5);
-		Peca pecaMao4 = new Peca(6, 6);
-		jogador.addPeca(pecaMao1);
-		jogador.addPeca(pecaMao3);
-		jogador.addPeca(pecaMao2);
-		jogador.addPeca(pecaMao4);
-		
-		// teste
-		assertEquals(pecaMao3, jogador.joga(tabuleiro));
-		assertEquals(pecaMao3, tabuleiro.getPecasJogadas().getFirst());
+	public void testAdicionaMenosRestritiva2(){
 		
 	}
 	
