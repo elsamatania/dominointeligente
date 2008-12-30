@@ -47,10 +47,10 @@ public class Jogador_VarMenosRestritiva extends Jogador {
 		LinkedList<Peca> pecasCompativeisComLadoEsq = getPecasCompativeisComUmLado(ladoEsqPecaEsquerdaTabuleiro);
 		LinkedList<Peca> pecasCompativeisComLadoDir = getPecasCompativeisComUmLado(ladoDirPecaDireitaTabuleiro);
 		
-		// Do lado com amis pecas compativeis, escolhe a peca mais compativel. Isto eh feito
+		// Do lado com mais pecas compativeis, escolhe a peca mais compativel. Isto eh feito
 		// analisando o outro lado de cada peca obtida acima. 
 		// Sera jogada a peca que tiver o segundo lado mais compativel com outras pecas.
-		if(pecasCompativeisComLadoEsq.size() > pecasCompativeisComLadoDir.size()){
+		if(pecasCompativeisComLadoEsq.size() >= pecasCompativeisComLadoDir.size()){
 			pecaJogada = selecionaPecaMenosRestritiva(ladoEsqPecaEsquerdaTabuleiro, pecasCompativeisComLadoEsq);
 		} else {
 			pecaJogada = selecionaPecaMenosRestritiva(ladoDirPecaDireitaTabuleiro, pecasCompativeisComLadoDir);

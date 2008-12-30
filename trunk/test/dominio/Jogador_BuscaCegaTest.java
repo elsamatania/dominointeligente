@@ -2,13 +2,19 @@ package dominio;
 
 import dominio.jogador.Jogador;
 import dominio.jogador.Jogador_BuscaCega;
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 public class Jogador_BuscaCegaTest extends TestCase {
 
 	private Tabuleiro tabuleiro;
 	
 	private Jogador jogador;
+	
+	public static Test suite() {
+		return new TestSuite(Jogador_BuscaCegaTest.class);
+	}
 	
 	protected void setUp() throws Exception {
 		tabuleiro = new Tabuleiro();
