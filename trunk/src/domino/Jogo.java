@@ -12,7 +12,7 @@ import dominio.jogador.Jogador;
 import dominio.jogador.JogadorFactory;
 
 /**
- * Classe prinipal do Jogo de domino. Eh a responsavel pela
+ * Classe principal do Jogo de domino. Eh a responsavel pela
  * criacao do ambiente, inicializacao e controle das jogadas
  * do Jogo.
  * 
