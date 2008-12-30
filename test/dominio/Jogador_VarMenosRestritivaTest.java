@@ -1,6 +1,8 @@
 package dominio;
 
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import dominio.jogador.Jogador;
 import dominio.jogador.Jogador_VarMenosRestritiva;
 
@@ -9,6 +11,10 @@ public class Jogador_VarMenosRestritivaTest extends TestCase {
 	private Tabuleiro tabuleiro;
 	
 	private Jogador jogador;
+	
+	public static Test suite() {
+		return new TestSuite(Jogador_VarMenosRestritivaTest.class);
+	}
 	
 	protected void setUp() throws Exception {
 		tabuleiro = new Tabuleiro();
@@ -50,6 +56,41 @@ public class Jogador_VarMenosRestritivaTest extends TestCase {
 		
 		// teste
 		assertEquals(peca3, jogador.joga(tabuleiro));
+		
+	}
+	
+	public void testAdicionaMenosRestritiva(){
+		
+		Peca pecaTab1 = new Peca(3, 6);
+		Peca pecaTab2 = new Peca(5, 6);
+		
+		tabuleiro.adicionaPecaEsquerdaTabuleiro(pecaTab1);
+		tabuleiro.adicionaPecaDireitaTabuleiro(pecaTab2);
+		
+		
+		Peca peca1 = new Peca(3, 1);
+		Peca peca2 = new Peca(3, 5);
+		Peca peca3 = new Peca(5, 1);
+		Peca peca4 = new Peca(5, 4);
+		
+		jogador.addPeca(peca1);
+		jogador.addPeca(peca2);
+		jogador.addPeca(peca3);
+		jogador.addPeca(peca4);
+		
+		
+		// teste
+		assertEquals(peca2, jogador.joga(tabuleiro));
+		assertEquals(peca2, tabuleiro.getPecaEsquerdaTabuleiro());
+		
+		assertEquals(peca3, jogador.joga(tabuleiro));
+		assertEquals(peca3, tabuleiro.getPecaEsquerdaTabuleiro());
+		
+		assertEquals(peca1, jogador.joga(tabuleiro));
+		assertEquals(peca1, tabuleiro.getPecaEsquerdaTabuleiro());
+		
+		assertEquals(peca4, jogador.joga(tabuleiro));
+		assertEquals(peca4, tabuleiro.getPecaDireitaTabuleiro());
 		
 	}
 
@@ -124,14 +165,6 @@ public class Jogador_VarMenosRestritivaTest extends TestCase {
 		// teste
 		assertEquals(pecaMao, jogador.joga(tabuleiro));
 		assertEquals(pecaMao, tabuleiro.getPecasJogadas().getLast());
-		
-	}
-	
-	public void testAdicionaMenosRestritiva(){
-		
-	}
-	
-	public void testAdicionaMenosRestritiva2(){
 		
 	}
 	
