@@ -1,0 +1,15 @@
+Desenvolvido por alunos da UFCG como projeto para a disciplina de
+Inteligência Artificial.
+Este projeto tem como finalidade o jogo entre dois jogadores que 
+são manipulados pela máquina, cada jogador pode escolher entre 
+duas heurísticas.
+
+- BUSCA CEGA: Varre as peças, jogando a primeira que se encaixar 
+  no jogo;
+- VARIÁVEL MENOS RESTRITIVA: Valor que deixa mais opções para escolhas 
+  no futuro.
+
+Grupo do Projeto:
+ - Allysson Makens Pereira Cavalcante
+ - Gustavo Pereira de Farias
+ - Paulo Romulo
