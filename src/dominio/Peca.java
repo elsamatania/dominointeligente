@@ -46,4 +46,60 @@ public class Peca {
 		return "|"+ladoEsquerdo + ":" + ladoDireito+"|";
 	}
 	
+	private String getImage(){
+		String resultado = "imagens/";
+		if (ladoEsquerdo > ladoDireito){
+			resultado += ladoDireito + "_" + ladoEsquerdo;
+		} else {
+			resultado += ladoEsquerdo + "_" + ladoDireito;
+		}
+		return resultado;
+	}
+	
+	public String getImagemTabuleiro(){
+		String resultado = "imagens/";
+		if (ladoEsquerdo > ladoDireito){
+			resultado += ladoDireito + "_" + ladoEsquerdo + "-180.png";
+		} else {
+			resultado += ladoEsquerdo + "_" + ladoDireito + ".png";
+		}
+		return resultado;
+	}
+	
+	public String getImagemTabuleiroInvertido(){
+		String resultado = "imagens/";
+		if (ladoEsquerdo > ladoDireito){
+			resultado += ladoDireito + "_" + ladoEsquerdo + ".png";
+		} else {
+			resultado += ladoEsquerdo + "_" + ladoDireito + "-180.png";
+		}
+		return resultado;
+	}
+	
+	public String getImagemTabuleiroDeitado(){
+		String resultado = "imagens/";
+		if (ladoEsquerdo > ladoDireito){
+			resultado += ladoDireito + "_" + ladoEsquerdo + "-270.png";
+		} else {
+			resultado += ladoEsquerdo + "_" + ladoDireito + "-90.png";
+		}
+		return resultado;
+	}
+	
+	public String getImage0(){
+		return getImage() + ".png";
+	}
+	
+	public String getImage90(){
+		return getImage() + "-90.png";
+	}
+	
+	public String getImage180(){
+		return getImage() + "-180.png";
+	}
+	
+	public String getImage270(){
+		return getImage() + "-270.png";
+	}
+	
 }
