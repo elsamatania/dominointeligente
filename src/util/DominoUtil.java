@@ -1,6 +1,10 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import dominio.Peca;
@@ -15,7 +19,9 @@ import dominio.jogador.Jogador;
 public class DominoUtil {
 
 	public static void misturaPecas(Set<Peca> pecas){
-		
+		List<Peca> aux = new ArrayList<Peca>(pecas);
+		Collections.shuffle(aux);
+		pecas = new HashSet<Peca>(aux);
 	}
 	
 	
